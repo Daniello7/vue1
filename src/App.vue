@@ -1,9 +1,9 @@
 <template>
-    <Count/>
+    <MainView/>
 </template>
 
 <script setup>
-import Count from './components/Count.vue';
+import MainView from './views/MainView.vue';
 </script>
 
 <style scoped>
