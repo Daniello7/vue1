@@ -1,12 +1,18 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="header">
-     <h3>La temperatura actual es: <Weather/></h3>
+    {{ receivedMessage }}<Weather />
   </div>
 </template>
 
 <script setup>
 import Weather from './Weather.vue';
+import { defineProps, ref, watch } from 'vue';
+const props = defineProps(['message']);
+const receivedMessage = ref(props.message);
+watch(() => props.message, (newValue) => {
+  receivedMessage.value = newValue;
+});
 </script>
 
 <style scoped>
@@ -15,7 +21,6 @@ import Weather from './Weather.vue';
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
